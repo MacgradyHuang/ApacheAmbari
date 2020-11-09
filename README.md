@@ -82,6 +82,7 @@ mvn -B clean install rpm:rpm -DnewVersion=2.7.3.0.0 -DbuildNumber=4295bb16c439cb
 
 # QA
 ## Q1:
+```
 [INFO] Downloading https://nodejs.org/dist/v4.5.0/node-v4.5.0-darwin-x64.tar.gz to /root/.m2/repository/com/github/eirslett/node/4.5.0/node-4.5.0-darwin-x64.tar.gz
 [INFO] No proxies configured
 [INFO] No proxy was configured, downloading directly
@@ -89,30 +90,36 @@ mvn -B clean install rpm:rpm -DnewVersion=2.7.3.0.0 -DbuildNumber=4295bb16c439cb
 [INFO] Downloading https://nodejs.org/dist/v8.6.0/node-v8.6.0-darwin-x64.tar.gz to /root/.m2/repository/com/github/eirslett/node/8.6.0/node-8.6.0-darwin-x64.tar.gz
 [INFO] No proxies configured
 [INFO] No proxy was configured, downloading directly
+```
 
 ##A1:
+```
 使用自主下载方式下载该版本node到~/.m2/repository/com/github/eirslett/node/4.5.0目录。
 mkdir -p ~/.m2/repository/com/github/eirslett/node/4.5.0
 wget -P ~/.m2/repository/com/github/eirslett/node/4.5.0 https://nodejs.org/dist/v4.5.0/node-v4.5.0-darwin-x64.tar.gz -O node-4.5.0-darwin-x64.tar.gz
 
 mkdir -p ~/.m2/repository/com/github/eirslett/node/8.6.0
 wget -P ~/.m2/repository/com/github/eirslett/node/8.6.0 https://nodejs.org/dist/v8.6.0/node-v8.6.0-darwin-x64.tar.gz -O node-8.6.0-darwin-x64.tar.gz
-
+```
 
 
 ##Q2:
+```
 [INFO] Downloading https://github.com/yarnpkg/yarn/releases/download/v0.23.2/yarn-v0.23.2.tar.gz to /root/.m2/repository/com/github/eirslett/yarn/0.23.2/yarn-0.23.2./yarn-v0.23.2.tar.gz
 [INFO] No proxies configured
 [INFO] No proxy was configured, downloading directly
+```
 
 ##A2:
+```
 使用自主下载方式下载该版本yarn到~/.m2/repository/com/github/eirslett/yarn/0.23.2/yarn-0.23.2.目录。
 mkdir -p ~/.m2/repository/com/github/eirslett/yarn/0.23.2/yarn-0.23.2.
 wget -P ~/.m2/repository/com/github/eirslett/yarn/0.23.2/yarn-0.23.2. https://github.com/yarnpkg/yarn/releases/download/v0.23.2/yarn-v0.23.2.tar.gz
-
+```
 
 
 ##Q3:
+```
 [ERROR] Failed to execute goal com.github.eirslett:frontend-maven-plugin:1.4:yarn (yarn install) on project ambari-web: Failed to run task: 'yarn install --ignore-engines --pure-lockfile' failed. org.apache.commons.exec.ExecuteException: Process exited with an error: 1 (Exit value: 1) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
@@ -123,25 +130,31 @@ wget -P ~/.m2/repository/com/github/eirslett/yarn/0.23.2/yarn-0.23.2. https://gi
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <goals> -rf :ambari-web
+```
 
 ##A3:
+```
 移除./ambari-web/yarn.lock文件
-
+```
 
 
 ##Q4：
+```
 [INFO] Downloading http://registry.npmjs.org/npm/-/npm-2.15.0.tgz to /root/.m2/repository/com/github/eirslett/npm/2.15.0/npm-2.15.0.tar.gz
 [INFO] No proxies configured
 [INFO] No proxy was configured, downloading directly
+```
 
 ##A4：
+```
 使用自主下载方式下载该版本npm到~/.m2/repository/com/github/eirslett/npm/2.15.0目录。
 mkdir -p ~/.m2/repository/com/github/eirslett/npm/2.15.0
 wget -P ~/.m2/repository/com/github/eirslett/npm/2.15.0 http://registry.npmjs.org/npm/-/npm-2.15.0.tgz -O npm-2.15.0.tar.gz
-
+```
 
 
 ##Q5:
+```
 Stack trace:
 SyntaxError: Unexpected token {
     at exports.runInThisContext (vm.js:53:16)
@@ -180,16 +193,19 @@ Trace
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <goals> -rf :ambari-admin
+```
 
 ##A5:
+```
 修改./ambari-admin/pom.xml文件：
 <argument>${basedir}/src/main/resources/ui/admin-web/node_modules/bower/bin/bower</argument>
 --->
 <argument>bower</argument>
-
+```
 
 
 ##Q6:
+```
 [ERROR] Failed to execute goal on project ambari-metrics-storm-sink-legacy: Could not resolve dependencies for project org.apache.ambari:ambari-metrics-storm-sink-legacy:jar:2.7.3.0.0: Failed to collect dependencies at org.apache.storm:storm-core:jar:0.10.0.2.3.0.0-2557: Failed to read artifact descriptor for org.apache.storm:storm-core:jar:0.10.0.2.3.0.0-2557: Could not transfer artifact org.apache.storm:storm-core:pom:0.10.0.2.3.0.0-2557 from/to apache-hadoop (http://nexus-private.hortonworks.com/nexus/content/groups/public): Connect to nexus-private.hortonworks.com:80 [nexus-private.hortonworks.com/52.42.98.163] failed: timeout (Connection timed out) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
@@ -200,16 +216,19 @@ Trace
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <goals> -rf :ambari-metrics-storm-sink-legacy
+```
 
 ##A6:
+```
 修改./ambari-metrics/pom.xml文件：
 <url>http://nexus-private.hortonworks.com/nexus/content/groups/public</url>
 --->
 <url>https://repo.hortonworks.com/content/groups/public</url>
-
+```
 
 
 ##Q7:
+```
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (default) on project ambari-metrics-timelineservice: An Ant BuildException has occured: Can't get http://dev.hortonworks.com.s3.amazonaws.com/HDP/centos7/3.x/BUILDS/3.0.0.0-1634/tars/hbase/hbase-2.0.0.3.0.0.0-1634-bin.tar.gz to /root/Projects/OpenSourceProjects/Ambari/ambari-metrics/ambari-metrics-timelineservice/target/embedded/hbase.tar.gz
 [ERROR] around Ant part ...<get usetimestamp="true" src="http://dev.hortonworks.com.s3.amazonaws.com/HDP/centos7/3.x/BUILDS/3.0.0.0-1634/tars/hbase/hbase-2.0.0.3.0.0.0-1634-bin.tar.gz" dest="/root/Projects/OpenSourceProjects/Ambari/ambari-metrics/ambari-metrics-timelineservice/target/embedded/hbase.tar.gz"/>... @ 5:298 in /root/Projects/OpenSourceProjects/Ambari/ambari-metrics/ambari-metrics-timelineservice/target/antrun/build-Download HBase.xml
 [ERROR] -> [Help 1]
@@ -222,8 +241,10 @@ Trace
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <goals> -rf :ambari-metrics-timelineservice
+```
 
 ##A7:
+```
 配置
 <hbase.tar>http://dev.hortonworks.com.s3.amazonaws.com/HDP/centos7/3.x/BUILDS/3.0.0.0-1634/tars/hbase/hbase-2.0.0.3.0.0.0-1634-bin.tar.gz</hbase.tar>
 <hbase.folder>hbase-2.0.0.3.0.0.0-1634</hbase.folder>
@@ -242,10 +263,11 @@ Trace
 <grafana.tar>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/grafana-2.6.0.linux-x64.tar.gz</grafana.tar>
 <phoenix.tar>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/phoenix-5.0.0.3.0.0.0-1634.tar.gz</phoenix.tar>
 <phoenix.folder>phoenix-5.0.0.3.0.0.0-1634</phoenix.folder>
-
+```
 
 
 ##Q8:
+```
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (default) on project ambari-infra-solr-client: An Ant BuildException has occured: The following error occurred while executing this line:
 [ERROR] /home/huangpengbo/Ambari/ambari-infra/ambari-infra-solr-client/build.xml:39: Can't get http://central.maven.org/maven2/org/apache/lucene/lucene-core/6.6.2/lucene-core-6.6.2.jar to /home/huangpengbo/Ambari/ambari-infra/ambari-infra-solr-client/target/migrate/lucene-core-6.6.2.jar
 [ERROR] around Ant part ...<ant antfile="build.xml">... @ 4:28 in /home/huangpengbo/Ambari/ambari-infra/ambari-infra-solr-client/target/antrun/build-main.xml
@@ -259,8 +281,10 @@ Trace
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <goals> -rf :ambari-infra-solr-client
+```
 
 ##A8:
+```
 使用自主下载方式下载该版本npm到~/.m2/repository/com/github/eirslett/npm/2.15.0目录。
 <lucene6.version>6.6.2</lucene6.version>
 <lucene6-core-jar.name>lucene-core-${lucene6.version}.jar</lucene6-core-jar.name>
@@ -273,5 +297,5 @@ Trace
 <lucene6-core.url>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/jars/${lucene6-core-jar.name}</lucene6-core.url>
 <lucene6-backward-codecs-jar.name>lucene-backward-codecs-${lucene6.version}.jar</lucene6-backward-codecs-jar.name>
 <lucene6-backward-codecs.url>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/jars/${lucene6-backward-codecs-jar.name}</lucene6-backward-codecs.url>
-
+```
 
