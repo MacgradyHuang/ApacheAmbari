@@ -1,0 +1,4 @@
+${project.basedir}/
+.github/
+.idea/
+target/
