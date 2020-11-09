@@ -255,13 +255,13 @@ Trace
 <phoenix.tar>http://dev.hortonworks.com.s3.amazonaws.com/HDP/centos7/3.x/BUILDS/3.0.0.0-1634/tars/phoenix/phoenix-5.0.0.3.0.0.0-1634.tar.gz</phoenix.tar>
 <phoenix.folder>phoenix-5.0.0.3.0.0.0-1634</phoenix.folder>
 --->
-<hbase.tar>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/hbase-2.0.0.3.0.0.0-1634-bin.tar.gz</hbase.tar>
+<hbase.tar>file:///root/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/hbase-2.0.0.3.0.0.0-1634-bin.tar.gz</hbase.tar>
 <hbase.folder>hbase-2.0.0.3.0.0.0-1634</hbase.folder>
-<hadoop.tar>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/hadoop/hadoop-3.1.0.3.0.0.0-1634.tar.gz</hadoop.tar>
+<hadoop.tar>file:///root/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/hadoop/hadoop-3.1.0.3.0.0.0-1634.tar.gz</hadoop.tar>
 <hadoop.folder>hadoop-3.1.0.3.0.0.0-1634</hadoop.folder>
 <grafana.folder>grafana-2.6.0</grafana.folder>
-<grafana.tar>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/grafana-2.6.0.linux-x64.tar.gz</grafana.tar>
-<phoenix.tar>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/phoenix-5.0.0.3.0.0.0-1634.tar.gz</phoenix.tar>
+<grafana.tar>file:///root/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/grafana-2.6.0.linux-x64.tar.gz</grafana.tar>
+<phoenix.tar>file:///root/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/phoenix-5.0.0.3.0.0.0-1634.tar.gz</phoenix.tar>
 <phoenix.folder>phoenix-5.0.0.3.0.0.0-1634</phoenix.folder>
 ```
 
@@ -294,8 +294,8 @@ Trace
 --->
 <lucene6.version>6.6.2</lucene6.version>
 <lucene6-core-jar.name>lucene-core-${lucene6.version}.jar</lucene6-core-jar.name>
-<lucene6-core.url>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/jars/${lucene6-core-jar.name}</lucene6-core.url>
+<lucene6-core.url>file:///root/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/jars/${lucene6-core-jar.name}</lucene6-core.url>
 <lucene6-backward-codecs-jar.name>lucene-backward-codecs-${lucene6.version}.jar</lucene6-backward-codecs-jar.name>
-<lucene6-backward-codecs.url>file:///Users/huangpengbo/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/jars/${lucene6-backward-codecs-jar.name}</lucene6-backward-codecs.url>
+<lucene6-backward-codecs.url>file:///root/Downloads/ApacheAmbariCompile/HDP/3.0.0.0-1634/jars/${lucene6-backward-codecs-jar.name}</lucene6-backward-codecs.url>
 ```
 
